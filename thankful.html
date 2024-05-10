@@ -11,7 +11,11 @@
             background-size: cover;
         }
         #content {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* 讓內容占滿整個視窗高度 */
         }
         #content h3 {
             opacity: 0;
@@ -29,7 +33,7 @@
             color: #ff1493; /* 使用更深的粉紅色 */
         }
         #backButton {
-            margin-top: 50px; /* 調整返回按鈕的上邊距 */
+            margin-top: 20px; /* 調整返回按鈕的上邊距 */
         }
     </style>
 </head>
