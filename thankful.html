@@ -20,8 +20,11 @@
         #content .show {
             opacity: 1;
         }
+        #snoopy {
+            display: none; /* 初始隱藏Snoopy圖像 */
+        }
         #content .last-line {
-            color: pink; /* 將顏色設置為粉紅色 */
+            color: #ff1493; /* 使用更深的粉紅色 */
         }
     </style>
 </head>
@@ -34,8 +37,7 @@
         <h3>讓我可以不害怕未來的道路，勇往直前!</h3> 
         <h3>在這特別的一天，獻上我的網頁製作第一個作品~</h3> 
         <h3>祝福您 天天開心，心想事成</h3>
-        <h3 class="last-line">還有最重要的是 母親節快樂! I love U!</h3>
-        <p><img src="snoopy.gif" height="300"></p>
+        <h3 class="last-line">還有最重要的是 母親節快樂! I love U! <img id="snoopy" src="snoopy.gif" height="150"></h3>
         <!-- 返回主頁的按鈕 -->
         <button onclick="goToHomePage()">返回主頁</button>
     </div>
@@ -49,6 +51,8 @@
                 lines[index].classList.add('show');
                 index++;
                 setTimeout(showLines, 3000); // 每 1000 毫秒（即每秒）顯示一行
+            } else {
+                document.getElementById('snoopy').style.display = 'block'; // 顯示Snoopy圖像
             }
         }
 
