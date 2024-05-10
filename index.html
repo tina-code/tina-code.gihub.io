@@ -22,27 +22,25 @@
             <p><img src="合照.jpg" height="416"></p>
             <select id="member">
                 <optgroup label="請選擇一位成員">
-                  <option value="others">其餘9人</option>
-                  <option value="mom">最特別的媽媽</option>
+                <option value="others">其餘9人</option>
+                <option value="mom">最特別的媽媽</option>
                 </optgroup>
             </select>
-            <button id="button" onclick="displaySelected()">Submit</button>
+            <button id="button" onclick="redirectToPage()">Submit</button>
               
             <div id="displayArea"></div>
               
             <script>
-            function displaySelected() {
+              function redirectToPage() {
                 var selectElement = document.getElementById("member");
-                var selectedOption = selectElement.options[selectElement.selectedIndex];
-                var selectedValue = selectedOption.value;
-                var selectedText = selectedOption.text;
-                
+                var selectedValue = selectElement.value;
+              
                 if (selectedValue === "others") {
-                  document.getElementById("displayArea").innerText = "你選擇了：其餘9人";
+                  window.location.href = "others.html";
                 } else if (selectedValue === "mom") {
-                  document.getElementById("displayArea").innerText = "你選擇了：最特別的媽媽";
+                  window.location.href = "thankful.html";
                 }
-            }
+              }
             </script>
         </center>    
     </body>
