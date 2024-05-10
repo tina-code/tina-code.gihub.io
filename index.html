@@ -22,10 +22,16 @@
             <p><img src="合照.jpg" height="416"></p>
             <select onchange="window.open(this.options[this.selectedIndex].value)">
                 <optgroup label="請選擇一位成員"></optgroup>
-                    <option value="others.html">其餘9人</option>
-                    <option value="thankful.html">最特別的媽媽</option>
+                    <option>其餘9人</option>
+                    <option>最特別的媽媽</option>
                 </optgroup>
             </select>
+            <button type="button" id="the_btn1">Submit</button>
+            <script>
+                document.querySelector('the_btn1').addEventListener('click',function(){
+                    alert($("select[name='the_select']").val());
+                })
+            </script>
         </center>    
     </body>
 </html>
