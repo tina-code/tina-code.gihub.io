@@ -20,23 +20,29 @@
             <script>setInterval("linkweb.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
             </script>
             <p><img src="合照.jpg" height="416"></p>
-            <select>
-                <optgroup label="請選擇一位成員"></optgroup>
-                    <option>其餘9人</option>
-                    <option>最特別的媽媽</option>
+            <select id="member">
+                <optgroup label="請選擇一位成員">
+                  <option value="others">其餘9人</option>
+                  <option value="mom">最特別的媽媽</option>
                 </optgroup>
             </select>
-            <button id="button">Submit</button>
+            <button id="button" onclick="displaySelected()">Submit</button>
+              
+            <div id="displayArea"></div>
+              
             <script>
-                document.getElementById("button").addEventListener("click", function() {
-                    var e = document.getElementById("ddlViewBy");
-                    var selectedValue = e.options[e.selectedIndex].value;
-                    var selectedText = e.options[e.selectedIndex].text;
-        
-                    // 在這裡，您可以使用 selectedValue 和 selectedText 來執行您想要的操作
-                    console.log("所選項的值：" + selectedValue);
-                    console.log("所選項的文本：" + selectedText);
-                });
+            function displaySelected() {
+                var selectElement = document.getElementById("member");
+                var selectedOption = selectElement.options[selectElement.selectedIndex];
+                var selectedValue = selectedOption.value;
+                var selectedText = selectedOption.text;
+                
+                if (selectedValue === "others") {
+                  document.getElementById("displayArea").innerText = "你選擇了：其餘9人";
+                } else if (selectedValue === "mom") {
+                  document.getElementById("displayArea").innerText = "你選擇了：最特別的媽媽";
+                }
+            }
             </script>
         </center>    
     </body>
