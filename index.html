@@ -26,12 +26,14 @@
                     <option>最特別的媽媽</option>
                 </optgroup>
             </select>
-            <button type="button" id="the_btn1">Submit</button>
-            <script>
-                document.querySelector('the_btn1').addEventListener('click',function(){
-                    alert($("select[name='the_select']").val());
-                })
-            </script>
+            <script> 
+                function myclick() { 
+                    document.querySelector('the_btn1').addEventListener('click',function(){
+                        alert($("select[name='the_select']").val());
+                    })
+                } 
+             </script>
+            <button type="button" ondblclick="myclick">Submit</button>
         </center>    
     </body>
 </html>
