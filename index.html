@@ -26,14 +26,18 @@
                     <option>最特別的媽媽</option>
                 </optgroup>
             </select>
-            <button ondblclick="myclick()">Submit</button>
-            <script> 
-                function myclick() { 
-                    document.querySelector('the_btn1').addEventListener('click',function(){
-                        alert($("select[name='the_select']").val());
-                    })
-                } 
-             </script>
+            <button id="button">Submit</button>
+            <script>
+                document.getElementById("button").addEventListener("click", function() {
+                    var e = document.getElementById("ddlViewBy");
+                    var selectedValue = e.options[e.selectedIndex].value;
+                    var selectedText = e.options[e.selectedIndex].text;
+        
+                    // 在這裡，您可以使用 selectedValue 和 selectedText 來執行您想要的操作
+                    console.log("所選項的值：" + selectedValue);
+                    console.log("所選項的文本：" + selectedText);
+                });
+            </script>
         </center>    
     </body>
 </html>
