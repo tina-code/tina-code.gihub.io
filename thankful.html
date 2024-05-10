@@ -16,14 +16,15 @@
         #content {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* 水平方向上對齊最上方 */
-            justify-content: center;
+            align-items: center; /* 水平方向上置中 */
+            justify-content: flex-start; /* 垂直方向上保持在頂部 */
             height: 100vh; /* 將高度設置為視窗的高度 */
             padding-top: 20px; /* 增加頂部內邊距 */
         }
         #content h3 {
             opacity: 0;
             transition: opacity 1s ease;
+            text-align: left; /* 將文字左對齊 */
         }
         #content .show {
             opacity: 1;
@@ -64,7 +65,7 @@
             if (index < lines.length) {
                 lines[index].classList.add('show');
                 index++;
-                setTimeout(showLines, 1000); // 每 1000 毫秒（即每秒）顯示一行
+                setTimeout(showLines, 2500); // 每 1000 毫秒（即每秒）顯示一行
             } else {
                 document.getElementById('snoopy').style.display = 'inline'; // 顯示Snoopy圖像
             }
