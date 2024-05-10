@@ -40,11 +40,18 @@
         #backButton {
             margin-top: 20px; /* 調整返回按鈕的上邊距 */
         }
+        #marqueeContainer {
+            display: flex;
+            align-items: center; /* 垂直方向上置中 */
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <div id="content">
-        <marquee><h1 style="color: #FF7878; text-shadow: 3px 3px 3px #a4b0b8;">Dear 媽咪，祝妳母親節快樂~</h1></marquee>
+        <div id="marqueeContainer">
+            <marquee><h1 style="color: #FF7878; text-shadow: 3px 3px 3px #a4b0b8;">Dear 媽咪，祝妳母親節快樂~</h1></marquee>
+        </div>
         <h3>Dear 媽媽，</h3>
         <h3>謝謝您讓我們從新竹回家之後可以吃到熱騰騰又美味的大餐，</h3> 
         <h3>也謝謝您總是成為我的精神支柱，</h3> 
@@ -65,7 +72,7 @@
             if (index < lines.length) {
                 lines[index].classList.add('show');
                 index++;
-                setTimeout(showLines, 2500); // 每 1000 毫秒（即每秒）顯示一行
+                setTimeout(showLines, 1000); // 每 1000 毫秒（即每秒）顯示一行
             } else {
                 document.getElementById('snoopy').style.display = 'inline'; // 顯示Snoopy圖像
             }
