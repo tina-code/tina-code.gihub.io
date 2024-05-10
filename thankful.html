@@ -28,6 +28,9 @@
         #content .last-line {
             color: #ff1493; /* 使用更深的粉紅色 */
         }
+        #backButton {
+            margin-top: 20px; /* 調整返回按鈕的上邊距 */
+        }
     </style>
 </head>
 <body>
@@ -42,7 +45,7 @@
         <h3 class="last-line">還有最重要的是 母親節快樂! I love U!</h3>
         <img id="snoopy" src="snoopy.gif" alt="Snoopy" height="300"> <!-- 調整Snoopy圖像的高度 -->
         <!-- 返回主頁的按鈕 -->
-        <button onclick="goToHomePage()">返回主頁</button>
+        <button id="backButton" onclick="goToHomePage()">返回主頁</button>
     </div>
 
     <script>
@@ -53,7 +56,7 @@
             if (index < lines.length) {
                 lines[index].classList.add('show');
                 index++;
-                setTimeout(showLines, 3000); // 每 1000 毫秒（即每秒）顯示一行
+                setTimeout(showLines, 2500); // 每 1000 毫秒（即每秒）顯示一行
             } else {
                 document.getElementById('snoopy').style.display = 'inline'; // 顯示Snoopy圖像
             }
