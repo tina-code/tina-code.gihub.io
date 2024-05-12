@@ -26,7 +26,7 @@
             opacity: 1; /* 逐漸顯示內容 */
         }
         h1 {
-            color: #24748c;
+            color: #5f9ea0; /* 更改字體顏色為淺藍色 */
             text-shadow: 3px 3px 3px #a4b0b8;
             margin-bottom: 20px; /* 添加一些底邊距 */
         }
@@ -47,6 +47,16 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 20px; /* 添加一些頂部邊距 */
+        }
+        .additional-content {
+            opacity: 0; /* 初始設置為透明 */
+            transition: opacity 2s ease; /* 添加過渡效果 */
+            text-align: center; /* 文本置中 */
+            margin-top: 20px; /* 添加一些頂部邊距 */
+        }
+        .additional-content.show {
+            opacity: 1; /* 逐漸顯示額外內容 */
         }
     </style>
 </head>
@@ -57,6 +67,11 @@
         <!-- 返回主頁的按鈕 -->
         <button onclick="goToHomePage()">返回主頁</button>
     </div>
+    <!-- 額外的內容 -->
+    <div id="additionalContent" class="additional-content">
+        <h2 id="videoText">別急著走~這邊有歷年的影片</h2>
+        <h3 id="enjoyText" style="display: none;">請慢慢欣賞!</h3>
+    </div>
 
     <script>
         // 等待文檔加載完成後執行
@@ -64,10 +79,35 @@
             // 獲取元素
             var content = document.getElementById('content');
             var dogImage = document.getElementById('dogImage');
+            var additionalContent = document.getElementById('additionalContent');
+            var videoText = document.getElementById('videoText');
+            var enjoyText = document.getElementById('enjoyText');
 
             // 添加class以逐漸顯示內容
             content.classList.add('show');
             dogImage.classList.add('show');
+            additionalContent.classList.add('show');
+
+            // 設置一段時間後顯示第二條信息
+            setTimeout(function() {
+                enjoyText.style.display = 'block'; // 顯示第二條信息
+                setTimeout(function() {
+                    enjoyText.classList.add('show'); // 逐漸顯示第二條信息
+                }, 2000); // 2秒後
+            }, 2000); // 2秒後
+
+            // 一段時間後顯示影片
+            setTimeout(function() {
+                var video1 = document.createElement('video');
+                video1.src = 'mom.mp4';
+                video1.controls = true;
+                document.body.appendChild(video1);
+
+                var video2 = document.createElement('video');
+                video2.src = 'mom1.mp4';
+                video2.controls = true;
+                document.body.appendChild(video2);
+            }, 3000); // 3秒後
         };
 
         function goToHomePage() {
