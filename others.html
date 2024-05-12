@@ -17,7 +17,7 @@
             display: flex;
             flex-direction: column;
             align-items: center; /* 水平方向上置中 */
-            justify-content: flex-start; /* 垂直方向上保持在頂部 */
+            justify-content: center; /* 垂直方向上置中 */
             height: 100vh; /* 將高度設置為視窗的高度 */
             opacity: 0; /* 初始設置為透明 */
             transition: opacity 2s ease; /* 添加過渡效果 */
@@ -47,6 +47,12 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            opacity: 0; /* 初始設置為透明 */
+            transition: opacity 2s ease; /* 添加過渡效果 */
+            margin-top: 20px; /* 添加一些頂部邊距 */
+        }
+        button.show {
+            opacity: 1; /* 逐漸顯示按鈕 */
         }
     </style>
 </head>
@@ -64,10 +70,20 @@
             // 獲取元素
             var content = document.getElementById('content');
             var dogImage = document.getElementById('dogImage');
+            var backButton = document.querySelector('button');
 
             // 添加class以逐漸顯示內容
             content.classList.add('show');
             dogImage.classList.add('show');
+            backButton.classList.add('show');
+
+            // 顯示額外的文本
+            setTimeout(function() {
+                var additionalText = document.createElement('p');
+                additionalText.textContent = "別急著離開，這邊還有歷年的影片~";
+                document.body.insertBefore(additionalText, backButton);
+                additionalText.classList.add('show');
+            }, 2000);
         };
 
         function goToHomePage() {
