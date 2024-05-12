@@ -17,7 +17,7 @@
             display: flex;
             flex-direction: column;
             align-items: center; /* 水平方向上置中 */
-            justify-content: flex-start; /* 垂直方向上置中 */
+            justify-content: flex-start; /* 垂直方向上保持在頂部 */
             height: 100vh; /* 將高度設置為視窗的高度 */
             opacity: 0; /* 初始設置為透明 */
             transition: opacity 2s ease; /* 添加過渡效果 */
@@ -25,25 +25,9 @@
         #content.show {
             opacity: 1; /* 逐漸顯示內容 */
         }
-        #surprise {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* 水平方向上置中 */
-            justify-content: flex-start; /* 垂直方向上置中 */
-            height: 100vh; /* 將高度設置為視窗的高度 */
-            opacity: 0; /* 初始設置為透明 */
-            transition: opacity 2s ease; /* 添加過渡效果 */
-        }
-        #surprise.show {
-            opacity: 1; /* 逐漸顯示內容 */
-        }
         h1 {
             color: #5f9ea0; /* 更改字體顏色為淺藍色 */
             text-shadow: 3px 3px 3px #a4b0b8;
-            margin-bottom: 20px; /* 添加一些底邊距 */
-        }
-        h2 {
-            color: #5f9ea0; /* 更改字體顏色為淺藍色 */
             margin-bottom: 20px; /* 添加一些底邊距 */
         }
         img {
@@ -63,12 +47,10 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            opacity: 0; /* 初始設置為透明 */
-            transition: opacity 2s ease; /* 添加過渡效果 */
-            margin-top: 20px; /* 添加一些頂部邊距 */
         }
-        button.show {
-            opacity: 1; /* 逐漸顯示按鈕 */
+        video {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -76,32 +58,28 @@
     <div id="content">
         <h1>都說是其餘九人了，還點啊!</h1>
         <img id="dogImage" src="dog.jpg" alt="dog" height="416">
+        <h2>別急著離開，這邊還有歷年的影片~</h2>
+        <h2>請慢慢欣賞!</h2>
+        <video id="video1" src="mom.mp4" controls></video>
+        <video id="video2" src="mom1.mp4" controls></video>
         <!-- 返回主頁的按鈕 -->
+        <button onclick="goToHomePage()">返回主頁</button>
     </div>
-    <div id="surprise">
-        <h2>別急著離開，這邊還有歷年的影片</h2>
-    </div>
-    <button onclick="goToHomePage()">返回主頁</button>
+
     <script>
         // 等待文檔加載完成後執行
         window.onload = function() {
             // 獲取元素
             var content = document.getElementById('content');
             var dogImage = document.getElementById('dogImage');
-            
+            var video1 = document.getElementById('video1');
+            var video2 = document.getElementById('video2');
 
             // 添加class以逐漸顯示內容
             content.classList.add('show');
             dogImage.classList.add('show');
-            
-
-            // 顯示額外的文本
-            setTimeout(function() {
-                var surprise = document.getElementById('surprise');
-                surprise.classList.add('show');
-            }, 2000);
-            var backButton = document.querySelector('button');
-            backButton.classList.add('show');
+            video1.classList.add('show');
+            video2.classList.add('show');
         };
 
         function goToHomePage() {
