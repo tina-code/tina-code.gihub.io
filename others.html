@@ -1,30 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <center><marquee><h1><font color="#FF7878"font style="text-shadow:3px 3px 3px#a4b0b8;">換一個選項試試吧~</font></h1></marquee></center>
-        <meta http-equiv="Content-Type" content="text/html; ">
-    </head>
+<head>
+    <meta charset="UTF-8">
     <title>我們這一家</title>
     <style>
-    body {
-        background-image: url("background.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
+        body {
+            background-image: url("background.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0; /* 清除預設的外邊距 */
+            padding: 0; /* 清除預設的內邊距 */
+            font-family: Arial, sans-serif; /* 設置字體 */
+        }
+        #content {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 水平方向上置中 */
+            justify-content: flex-start; /* 垂直方向上保持在頂部 */
+            height: 100vh; /* 將高度設置為視窗的高度 */
+            opacity: 0; /* 初始設置為透明 */
+            transition: opacity 2s ease; /* 添加過渡效果 */
+        }
+        #content.show {
+            opacity: 1; /* 逐漸顯示內容 */
+        }
+        h1 {
+            color: #FF7878;
+            text-shadow: 3px 3px 3px #a4b0b8;
+            margin-bottom: 20px; /* 添加一些底邊距 */
+        }
+        img {
+            max-width: 100%; /* 確保圖片在小屏幕上不會溢出 */
+            height: auto; /* 讓圖片的高度自適應 */
+            margin-bottom: 20px; /* 添加一些底邊距 */
+            opacity: 0; /* 初始設置為透明 */
+            transition: opacity 2s ease; /* 添加過渡效果 */
+        }
+        img.show {
+            opacity: 1; /* 逐漸顯示圖片 */
+        }
+        button {
+            background-color: #FF7878;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
-    <body>
-        <center>
-            <h1>都說是其餘九人了，還點啊!</h1>
-            <p><img src="dog.jpg" height="416"></p>
-            <!-- 返回主頁的按鈕 -->
-            <button onclick="goToHomePage()">返回主頁</button>
+</head>
+<body>
+    <div id="content">
+        <h1>都說是其餘九人了，還點啊!</h1>
+        <img id="dogImage" src="dog.jpg" alt="dog" height="416">
+        <!-- 返回主頁的按鈕 -->
+        <button onclick="goToHomePage()">返回主頁</button>
+    </div>
 
-            <script>
-            function goToHomePage() {
-                window.location.href = "index.html"; // 這裡替換成你的主頁面的 URL
-            }
-            </script>
-        </center>    
-    </body>
+    <script>
+        // 等待文檔加載完成後執行
+        window.onload = function() {
+            // 獲取元素
+            var content = document.getElementById('content');
+            var dogImage = document.getElementById('dogImage');
+
+            // 添加class以逐漸顯示內容
+            content.classList.add('show');
+            dogImage.classList.add('show');
+        };
+
+        function goToHomePage() {
+            window.location.href = "index.html"; // 這裡替換成你的主頁面的 URL
+        }
+    </script>
+</body>
 </html>
