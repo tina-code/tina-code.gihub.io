@@ -25,7 +25,7 @@
         #content.show {
             opacity: 1; /* 逐漸顯示內容 */
         }
-        h1 {
+        h1, h2, h3 {
             color: #5f9ea0; /* 更改字體顏色為淺藍色 */
             text-shadow: 3px 3px 3px #a4b0b8;
             margin-bottom: 20px; /* 添加一些底邊距 */
@@ -65,27 +65,23 @@
             margin-bottom: 20px; /* 添加一些底邊距 */
         }
         video {
-            width: 100%;
-            height: auto;
+            width: auto;
+            height: 100%;
         }
     </style>
 </head>
 <body>
     <div id="content">
-        <h1>都說是其餘九人了，還點啊!</h1>
-        <img src="dog.jpg" alt="dog" height="416">
-        <div class="additional-content">
-            <h2>別急著走~這邊有歷年的影片</h2>
-            <h3>請慢慢欣賞!</h3>
-        </div>
-        <div class="video-container">
-            <video src="mom.mp4" controls></video>
-        </div>
-        <div class="video-container">
-            <video src="mom1.mp4" controls></video>
-        </div>
+        <h1 style="display: none;">都說是其餘九人了，還點啊!</h1>
+        <img src="dog.jpg" alt="dog" height="416" style="display: none;">
         <!-- 返回主頁的按鈕 -->
-        <button onclick="goToHomePage()">返回主頁</button>
+        <button onclick="goToHomePage()" style="display: none;">返回主頁</button>
+    </div>
+
+    <!-- 額外的內容 -->
+    <div id="additionalContent" class="additional-content">
+        <h2 style="display: none;">別急著走~這邊有歷年的影片</h2>
+        <h3 style="display: none;">請慢慢欣賞!</h3>
     </div>
 
     <script>
@@ -93,14 +89,39 @@
         window.onload = function() {
             // 獲取元素
             var content = document.getElementById('content');
-            var additionalContent = document.querySelector('.additional-content');
+            var additionalContent = document.getElementById('additionalContent');
             var videos = document.querySelectorAll('.video-container');
-            var dogImage = document.querySelector('img');
+
+            // 顯示第一組內容（都說是其餘九人了還點啊）
+            setTimeout(function() {
+                var h1 = document.querySelector('h1');
+                var dogImage = document.querySelector('img');
+                var backButton = document.querySelector('button');
+
+                h1.style.display = 'block';
+                dogImage.style.display = 'block';
+                backButton.style.display = 'block';
+            }, 2000);
+
+            // 顯示第二組內容（別急著走~這邊有歷年的影片，請慢慢欣賞!）
+            setTimeout(function() {
+                var h2 = document.querySelector('h2');
+                var h3 = document.querySelector('h3');
+
+                h2.style.display = 'block';
+                h3.style.display = 'block';
+            }, 4000);
+
+            // 顯示第三組內容（兩個影片）
+            setTimeout(function() {
+                videos.forEach(function(video) {
+                    video.style.display = 'block';
+                });
+            }, 7000);
 
             // 添加class以逐漸顯示內容
             content.classList.add('show');
             additionalContent.classList.add('show');
-            dogImage.classList.add('show');
             videos.forEach(function(video) {
                 video.classList.add('show');
             });
